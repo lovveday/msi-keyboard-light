@@ -1,0 +1,24 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build with csc
+        shell: pwsh
+        run: ./build.ps1
+
+      - name: Upload binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: MsiKeyboardLight
+          path: MsiKeyboardLight.exe
+          if-no-files-found: error

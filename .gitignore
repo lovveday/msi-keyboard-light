@@ -1,0 +1,12 @@
+# Build output
+*.exe
+*.pdb
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+
+# OS noise
+Thumbs.db
+desktop.ini
